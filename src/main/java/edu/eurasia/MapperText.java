@@ -17,7 +17,7 @@ public class MapperText {
     @Test
     public void findUserById() throws  Exception{
         UserMapper userMapper = (UserMapper) applicationContext.getBean("userMapper");
-        UserBean userBean = userMapper.findUserByIdMapper(3);
+        UserBean userBean = userMapper.findUserByIdMapper(1);
         System.out.println(userBean);
     }
 }

@@ -5,7 +5,7 @@
 <configuration>
     <mappers>
         <mapper resource="mapper/User.xml"></mapper>
-        <!--去掉引入sql文件-->
-        <!--<mapper resource="mapper/UserMapper.xml"></mapper>-->
+
+        <mapper resource="mapper/UserMapper.xml"></mapper>
     </mappers>
 </configuration>

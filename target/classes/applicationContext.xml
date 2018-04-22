@@ -25,6 +25,7 @@
         <property name="user" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
     </bean>
+
     <!--配置sqlSqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--注入mybatis核心配置文件-->
@@ -32,24 +33,14 @@
         <!--注入数据源-->
         <property name="dataSource" ref="dataSource"></property>
     </bean>
+
     <!--配置UserImpl，注入sqlSessionFactory-->
     <bean id="userDao" class="edu.eurasia.dao.impl.UserImpl">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 
-    <!--mapper配置方法一-->
-   <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-       <!--注入sqlSessionFactory-->
-       <!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
-       <!--配置扫描接口-->
-       <!-- <property name="mapperInterface" value="edu.eurasia.dao.UserMapper"></property>
-    </bean>-->
-    <!-- mapper批量扫描，从mapper包中扫描出mapper接口，自动创建代理对象并且在spring容器中注册
-    遵循规范：将mapper.java和mapper.xml映射文件名称保持一致，且在一个目录 中
-    自动扫描出来的mapper的bean的id为mapper类名（首字母小写）
-    -->
+    <!--使用mapper自动扫描-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 指定扫描的包名,如果扫描多个包，每个包中间使用半角逗号分隔 -->
        <property name="basePackage" value="edu.eurasia.dao"></property>
        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
    </bean>
