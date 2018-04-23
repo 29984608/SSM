@@ -1,12 +1,16 @@
-package edu.eurasia.entity;
+package edu.eurasia.po;
 
 import java.util.Date;
 
-public class UserBean {
+/**
+ * @author: Y
+ * @date: 2018/4/23
+ */
+public class User {
     private int id;
-    private  String username;
-    private Date birthday;
+    private String username;
     private String sex;
+    private Date birthday;
     private String address;
 
     public int getId() {
@@ -25,14 +29,6 @@ public class UserBean {
         this.username = username;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -41,22 +37,19 @@ public class UserBean {
         this.sex = sex;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "UserBean{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", birthday=" + birthday +
-                ", sex='" + sex + '\'' +
-                ", address='" + address + '\'' +
-                '}';
     }
 }
